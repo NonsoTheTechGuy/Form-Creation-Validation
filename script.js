@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('registration-form');
     const feedbackDiv = document.getElementById('form-feedback');
 
-    document.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function(event) {
         event.preventDefault();
         
         const username = document.getElementById('username').value.trim();
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messages.push('Username must be at least 3 characters long.');
         }
 
-        if( !email.includes('@') || !email.includes('.')) {
+        if(!email.includes('@') || !email.includes('.')) {
             isValid = false;
             messages.push('Please enter a valid email address.');
         }
