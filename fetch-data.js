@@ -15,14 +15,19 @@ if (!response.ok) {
 const users = await response.json();
 // Clear the loading message
 dataContainer.innerHTML = '';
-// Create a list of user names
-const ul = document.createElement('ul');
-users.forEach(user => {
-    const li = document.createElement('li');
-    li.textContent = user.name;
-    ul.appendChild(li);
-});
-    dataContainer.appendChild(ul);
+// Create a <ul> element and store it in a constant named userList
+const userList = document.createElement('ul');
+// Loop through the users array with forEach
+    users.forEach(user => {
+      // Create a <li> element
+      const li = document.createElement('li');
+      // Set the text content of the <li> to the user’s name
+      li.textContent = user.name;
+      // Append the <li> to userList
+      userList.appendChild(li);
+    });
+    // After the loop, append userList to dataContainer
+    dataContainer.appendChild(userList);
   } catch(error){
     // Display error message
     dataContainer.textContent = `Failed to load user data: ${error.message}`;
@@ -30,4 +35,3 @@ users.forEach(user => {
 }
 // Call the function to fetch user data on page load
 document.addEventListener('DOMContentLoaded', fetchUserData);
-// ...existing code...
