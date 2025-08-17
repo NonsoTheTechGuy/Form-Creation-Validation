@@ -1,4 +1,3 @@
-// ...existing code...
 async function fetchUserData() {
 // Select the container where user data will be displayed
 const dataContainer = document.getElementById('api-data');
