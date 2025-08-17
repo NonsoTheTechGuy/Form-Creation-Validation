@@ -1,7 +1,7 @@
 // ...existing code...
 async function fetchUserData() {
 // Select the container where user data will be displayed
-const apiDataDiv = document.getElementById('api-data');
+const dataContainer = document.getElementById('api-data');
 
 // Define the API endpoint
 const apiUrl = 'https://jsonplaceholder.typicode.com/users';
@@ -16,7 +16,7 @@ fetch(apiUrl)
   })
   .then(users => {
     // Clear the loading message
-    apiDataDiv.innerHTML = '';
+    dataContainer.innerHTML = '';
     // Create a list of user names
     const ul = document.createElement('ul');
     users.forEach(user => {
@@ -24,11 +24,11 @@ fetch(apiUrl)
       li.textContent = user.name;
       ul.appendChild(li);
     });
-    apiDataDiv.appendChild(ul);
+    dataContainer.appendChild(ul);
   })
   .catch(error => {
     // Display error message
-    apiDataDiv.textContent = `Failed to load user data: ${error.message}`;
+    dataContainer.textContent = `Failed to load user data: ${error.message}`;
   });
 }
 // Call the function to fetch user data on page load
