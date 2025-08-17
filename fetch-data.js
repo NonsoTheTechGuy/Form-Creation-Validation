@@ -1,5 +1,6 @@
 // ...existing code...
-
+async function fetchUserData() {
+  // Select the container where user data will be displayed
 // Select the container where user data will be displayed
 const apiDataDiv = document.getElementById('api-data');
 
@@ -30,5 +31,5 @@ fetch(apiUrl)
     // Display error message
     apiDataDiv.textContent = `Failed to load user data: ${error.message}`;
   });
-
+}
 // ...existing code...
